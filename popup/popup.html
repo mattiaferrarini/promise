@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+<head>
+    <title>Promise</title>
+    <style>
+        body {
+            font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif !important;
+            font-weight: 300 !important;
+            background-color: rgb(235, 235, 235) !important;
+            width: 400px;
+        }
+
+        .form-check-input {
+            background-color: rgb(180, 180, 180) !important;
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/></svg>") !important;
+            outline: none !important;
+            border: 0px !important;
+        }
+
+        .form-check-input:checked {
+            background-color: rgb(0, 160, 0) !important;
+            border-color: rgb(0, 160, 0) !important;
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/></svg>") !important;
+        }
+
+        .form-switch .form-check-input:focus {
+            border-color: rgba(0, 0, 0, 0.25);
+            outline: 0;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/></svg>") !important;
+        }
+
+        input {
+            border: 0px;
+            outline: none;
+        }
+
+        button {
+            border: 0px;
+            background: none;
+        }
+
+        .trash-icon {
+            filter: invert(35%);
+        }
+
+        .expand-button {
+            filter: invert(50%);
+        }
+
+        .lighter-icon {
+            filter: invert(40%);
+        }
+
+        #error-message {
+            display: none;
+            background-color: rgba(203, 132, 0, 0.7);
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.css">
+</head>
+
+<body class="p-2 pb-3 border-0">
+    <h3 class="text-center mt-3 mb-2" id="title">Promise</h3>
+    <div class="d-flex flex-row align-items-center my-3 mx-2 px-3 py-1 bg-white shadow-sm rounded-pill">
+        <input type="text" id="newGroupTitle" class="flex-grow-1 p-0 m-0 mt-1" placeholder="New group" />
+        <button id="addGroupButton"><img src="../icons/plus-circle.svg" alt="Add Icon" width="16"
+                height="16" class="lighter-icon" /></button>
+    </div>
+    <div id="groupsContainer" class="d-flex flex-column gap-2"></div>
+
+    <div class="m-2 py-1 px-4 text-center text-white rounded" id="error-message">
+        Error occurred. Please try again.
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
