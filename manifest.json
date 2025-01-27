@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Promise",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Promise not to visit some websites.",
   "permissions": [
     "storage", "webRequest", "webRequestBlocking"
@@ -23,5 +23,10 @@
       "extension_ids": [],
       "matches": [ "*://*/*" ]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "promise@mattiaferrarini.com"
+  }
+}
 }

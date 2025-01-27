@@ -37,8 +37,9 @@ const addGroup = async () => {
     if (title) {
         const groupExists = groups.some(group => group.title === title);
         if (!groupExists) {
-            groups.push({ title, websites: [], active: true, expanded: true });
-            displayGroup(groups[groups.length - 1]);
+            const newGroup = { title, websites: [], active: true, expanded: true };
+            groups.unshift(newGroup);
+            displayGroup(newGroup, true);
             await saveGroups();
         } else {
             showMessage('Group already exists', false);
@@ -155,7 +156,7 @@ const displayAllGroups = (groups) => {
  * @param {boolean} group.expanded - Indicates if the group is expanded.
  * @param {string} group.name - The name of the group.
  */
-const displayGroup = (group) => {
+const displayGroup = (group, toTop=false) => {
     const groupDiv = document.createElement('div');
     groupDiv.classList.add('p-2', 'rounded', 'shadow-sm', 'mt-1');
     groupDiv.style.backgroundColor = 'rgb(245, 245, 245)';
@@ -169,7 +170,12 @@ const displayGroup = (group) => {
         createBottomRow(group, groupDiv);
     }
 
-    groupsContainer.appendChild(groupDiv);
+    if (toTop) {
+        groupsContainer.insertBefore(groupDiv, groupsContainer.firstChild);
+    }
+    else {
+        groupsContainer.appendChild(groupDiv);
+    }
 }
 
 /**
