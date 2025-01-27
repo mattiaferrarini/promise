@@ -322,7 +322,7 @@ const createBottomRow = async (group, groupDiv) => {
         const website = websiteInput.value.trim();
         if (website) {
             if (isValidUrl(website)) {
-                const baseUrl = getBaseUrl(website);
+                const baseUrl = getHostname(website);
                 addWebsiteToGroup(baseUrl, group.title, groupDiv);
             }
             else {
@@ -408,16 +408,14 @@ const isValidUrl = (url) => {
 }
 
 /**
- * Extracts the base URL from a given URL string.
+ * Extracts the hostname from a given URL.
  *
- * @param {string} url - The URL string to extract the base URL from. If the URL does not include a protocol, 'http://' is assumed.
- * @returns {string} The base URL, consisting of the last two parts of the hostname.
+ * @param {string} url - The URL from which to extract the hostname. If the URL does not include a scheme (e.g., 'http://'), 'http://' will be prepended.
+ * @returns {string} The hostname extracted from the URL.
  */
-const getBaseUrl = (url) => {
+const getHostname = (url) => {
     const parsedUrl = new URL(url.includes('://') ? url : `http://${url}`);
-    const hostnameParts = parsedUrl.hostname.split('.');
-    const baseUrl = hostnameParts.slice(-2).join('.');
-    return baseUrl;
+    return parsedUrl.hostname;
 }
 
 /**
