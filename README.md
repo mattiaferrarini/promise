@@ -1,5 +1,7 @@
 # Promise
 
+![Mixed Screenshot](screenshots/mixed.png)
+
 Promise is a browser extension designed to help you keep your promises by blocking access to specific websites. Once you add websites to a group, the extension will prevent you from visiting those sites, helping you stay focused and productive.
 
 ## Features
