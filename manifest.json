@@ -1,16 +1,15 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Promise",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Keep the promise of not visiting some websites.",
   "permissions": [
-    "storage", "webRequest", "webRequestBlocking"
+    "storage", "webRequest", "webRequestBlocking", "<all_urls>"
   ],
-  "host_permissions": ["<all_urls>"],
   "background": {
     "scripts": ["background/background.js"]
   },
-  "action": {
+  "browser_action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
       "48": "icons/icon48.png",
@@ -18,15 +17,11 @@
     }
   },
   "web_accessible_resources": [
-    {
-      "resources": ["/pages/keep-your-promise.html"],
-      "extension_ids": [],
-      "matches": [ "*://*/*" ]
-    }
+    "/pages/keep-your-promise.html"
   ],
-  "browser_specific_settings": {
-  "gecko": {
-    "id": "promise@mattiaferrarini.com"
+  "applications": {
+    "gecko": {
+      "id": "promise@mattiaferrarini.com"
+    }
   }
-}
 }
